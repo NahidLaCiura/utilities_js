@@ -55,3 +55,15 @@ export function persianNumbers(num) {
         })
     );
 }
+
+
+export function convertCalender() {
+  const isoString = new Date().toISOString();
+  const date = new Date(isoString);
+return(
+    new Intl.DateTimeFormat("fa", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    }).format(date)
+  );
