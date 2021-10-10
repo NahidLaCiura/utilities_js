@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SinaMN75/utilities_js/issues"
   },
-  "homepage": "https://github.com/SinaMN75/utilities_js#readme"
+  "homepage": "https://github.com/SinaMN75/utilities_js#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }
