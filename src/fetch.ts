@@ -13,6 +13,7 @@ export function request(
 	action: Function,
 	error: Function,
 ) {
+
 	fetch(url, {
 		method: method,
 		mode: 'cors',
@@ -46,3 +47,22 @@ export function patch(url: string, data: {}, action: Function, error: Function) 
 export function deleteR(url: string, action: Function, error: Function) {
 	request(url, HttpMethod.delete, {}, action, error);
 }
+declare global {
+	export interface Number {
+		isBigNumber(): boolean;
+	}
+}
+Number.prototype.isBigNumber = function (this: number) {
+	return this > 100000;
+};
+
+function foo() {
+	const aBigNumber: number = 1000000000;
+
+	// Errors here TS2339: Property 'isBigNumber' does not exist on type 'number'.
+	if (aBigNumber.isBigNumber()) {
+		console.log("It's a big number!");
+	}
+}
+foo()
+
